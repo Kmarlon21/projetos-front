@@ -1,0 +1,74 @@
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(https://w0.peakpx.com/wallpaper/911/303/HD-wallpaper-ec-vitoria-brazilian-football-club-golden-silver-logo-salvador-brazil-serie-b-3d-golden-emblem-creative-3d-art-football-esporte-clube-vitoria.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
+.container1 {
+  margin-top: 50px;
+  margin-left: 600px;
+  font-size: 20px;
+  color: rgb(3, 0, 0);
+}
+
+#sub1 {
+  margin-top: 50px;
+  margin-left: 645px;
+  font-size: 22px;
+}
+
+.text1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  margin: 10px 15px 20px 25px;
+  color: aliceblue;
+}
+
+.text2 {
+  margin-top: 50px; /* Espaço no topo */
+  margin-bottom: 50px; /* Espaço na parte inferior */
+  padding-left: 10px; /* Espaço interno na esquerda */
+  padding-right: 5px;
+  overflow-y: auto;
+  overflow-x: auto;
+  color: aliceblue;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 20px;
+  font-family: "Times New Roman", Times, serif;
+  background-color: aliceblue;
+}
+
+th {
+  background-color: rgb(190, 6, 6);
+  color: rgb(0, 0, 0);
+  padding: 12px;
+  border: 1px solid;
+  text-align: left;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid;
+  text-align: left;
+}
+
+tr:hover {
+  background-color: rgb(8, 34, 5);
+}
+
+.text4 {
+  margin-top: 50px; /* Espaço no topo */
+  margin-bottom: 50px; /* Espaço na parte inferior */
+  padding-left: 900px; /* Espaço interno na esquerda */
+  padding-right: 10px;
+}
+
+span {
+  color: rgb(190, 6, 6);
+}

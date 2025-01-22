@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Mariscos e Peixes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #3498db; /* Cor de fundo azul */
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+            width: 200px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo translúcido para melhor legibilidade */
+            border-radius: 10px;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #carrinho {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        #carrinho img {
+            width: 30px;
+            height: auto;
+        }
+
+        #notification {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 50%;
+            transform: translateX(50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            z-index: 1000;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #cart-notification {
+            display: none;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: red;
+            color: white;
+            padding: 2px 5px;
+            border-radius: 50%;
+            font-size: 12px;
+            z-index: 1000;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            margin-bottom: 10px;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <center> <h1>Promoção de Mariscos e Peixes</h1></center>
+    <div id="notification">Produto adicionado ao carrinho!</div>
+    <div id="carrinho" onclick="irParaCarrinho()">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz3UEoi1m4u1HpjzAYBAq4137Srfbbq-rZdw&s" alt="Carrinho">
+        <div id="cart-notification">0</div>
+    </div>
+    <button class="back-button" onclick="voltar()">Voltar</button>
+
+    <div class="product">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVEJlNw9edqOZp18yA7BdKM_hvqASsmud2aA&s" alt="Camarão">
+        <h3>Camarão</h3>
+        <p>R$ 30,00 / Kg</p>
+        <input type="number" id="quantidadeCamarao" min="1" value="1">
+        <button onclick="adicionarAoCarrinho('Camarão', 30, 'quantidadeCamarao')">Selecionar</button>
+    </div>
+
+    <div class="product">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmRLhOqki-xsFNY27RUfm7oTvsQuUdrpREzA&s" alt="Lagosta">
+        <h3>Lagosta</h3>
+        <p>R$ 80,00 / Kg</p>
+        <input type="number" id="quantidadeLagosta" min="1" value="1">
+        <button onclick="adicionarAoCarrinho('Lagosta', 80, 'quantidadeLagosta')">Selecionar</button>
+    </div>
+
+    <div class="product">
+        <img src="https://segredosdomundo.r7.com/wp-content/uploads/2022/06/descubra-a-origem-da-cor-avermelhada-do-salmao-e1654380020841.webp" alt="Salmão">
+        <h3>Salmão</h3>
+        <p>R$ 50,00 / Kg</p>
+        <input type="number" id="quantidadeSalmao" min="1" value="1">
+        <button onclick="adicionarAoCarrinho('Salmão', 50, 'quantidadeSalmao')">Selecionar</button>
+    </div>
+
+    <div class="product">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG2aHpSaYbNwtMAx1D2INIQA3vzJo52pB2Yw&s" alt="Atum">
+        <h3>Atum</h3>
+        <p>R$ 45,00 / Kg</p>
+        <input type="number" id="quantidadeAtum" min="1" value="1">
+        <button onclick="adicionarAoCarrinho('Atum', 45, 'quantidadeAtum')">Selecionar</button>
+    </div>
+
+    <script>
+        let totalItensCarrinho = 0;
+
+        function adicionarAoCarrinho(produto, preco, quantidadeId) {
+            var quantidade = parseInt(document.getElementById(quantidadeId).value);
+            var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            
+            // Verifica se o produto já está no carrinho
+            var produtoExistente = carrinho.find(item => item.produto === produto);
+            if (produtoExistente) {
+                // Atualiza a quantidade do produto existente
+                produtoExistente.quantidade += quantidade;
+            } else {
+                // Adiciona o novo produto ao carrinho
+                carrinho.push({ produto: produto, preco: preco, quantidade: quantidade });
+            }
+
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+            var carrinhoDiv = document.getElementById("itensCarrinho");
+            var item = document.createElement("div");
+            item.textContent = produto + " - " + quantidade + " Kg - R$ " + (preco * quantidade) + ",00";
+            carrinhoDiv.appendChild(item);
+
+            // Mostra a notificação
+            var notification = document.getElementById("notification");
+            notification.style.display = "block";
+            setTimeout(function() {
+                notification.style.display = "none";
+            }, 2000);
+
+            // Atualiza a notificação do carrinho
+            let totalItensCarrinho = carrinho.reduce((total, item) => total + item.quantidade, 0);
+            document.getElementById("cart-notification").textContent = totalItensCarrinho;
+            document.getElementById("cart-notification").style.display = "block";
+        }
+
+        function irParaCarrinho() {
+            window.location.href = "carrinho.html"; // Substitua pelo caminho correto para a página do carrinho
+        }
+
+        function voltar() {
+            window.location.href = "index.html"; // Substitua pelo caminho correto para a página inicial
+        }
+    </script>
+</body>
+</html>

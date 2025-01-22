@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workshop Rubronegro</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Título do convite -->
+    <header class="container1">
+      <h1>Workshop Rubronegro</h1>
+    </header>
+
+    <main>
+      <!-- Subtítulo e parágrafo inicial -->
+      <section>
+        <h2 id="sub1">E.C. Vitória</h2>
+        <p>Prezado(a),</p>
+      </section>
+
+      <!-- Chamada principal -->
+      <section>
+        <h2 id="sub3"><span>Pega,</span> Leão!</h2>
+      </section>
+
+      <!-- Texto principal -->
+      <article class="text1">
+        <p>
+          Temos o prazer de convidá-lo(a) para um workshop exclusivo sobre
+          futebol, com foco no time Esporte Clube Vitória. Este evento tem como
+          objetivo promover o conhecimento sobre estratégias, táticas e a
+          história do nosso querido time baiano, além de explorar o papel do
+          futebol na formação esportiva e cultural.
+        </p>
+      </article>
+
+      <!-- Lista de tópicos -->
+      <section class="text2">
+        <ul>
+          <li>Vantagens e Desafios da Transformação em SAF</li>
+          <li>Impacto Financeiro e Projeções de Receita</li>
+          <li>Participação da Torcida e Estrutura de Governança</li>
+          <li>Planejamento de Longo Prazo e Impacto Esportivo</li>
+        </ul>
+      </section>
+
+      <!-- Tabela de dados -->
+      <section class="text3">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Horário</th>
+              <th>Local</th>
+              <th>Público alvo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>04/11/24</td>
+              <td>19:00 - 22:30</td>
+              <td>Barradão</td>
+              <td>Sócio torcedor</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Botões de Confirmação e Negação -->
+      <section class="text4">
+        <button
+          class="confirm-button"
+          onclick="confirmacao()"
+          aria-label="Confirmar presença"
+        >
+          Confirmar Presença
+        </button>
+        <button
+          class="deny-button"
+          onclick="negacao()"
+          aria-label="Negar presença"
+        >
+          Negar Presença
+        </button>
+        <button
+          class="pendente"
+          onclick="incerteza()"
+          aria-label="Presença em análise"
+        >
+          Em Análise
+        </button>
+      </section>
+    </main>
+
+    <script>
+      // Função de confirmação
+      function confirmacao() {
+        alert("Sua presença foi confirmada! Obrigado.");
+      }
+
+      // Função de negação
+      function negacao() {
+        alert("Presença negada. Sentiremos sua falta!");
+      }
+
+      // Função de incerteza
+      function incerteza() {
+        alert("Devido a dúvidas, iremos guardar um lugar vago!");
+      }
+    </script>
+  </body>
+</html>

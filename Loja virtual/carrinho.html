@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .carrinho-item {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pagamento {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Carrinho de Compras</h1>
+    <div id="carrinhoItens"></div>
+
+    <div class="pagamento">
+        <h3>Formas de Pagamento</h3>
+        <button onclick="pagarComCartao()">Cartão</button>
+        <button onclick="pagarComPix()">Pix</button>
+        <button onclick="pagarComBoleto()">Boleto</button>
+    </div>
+
+    <button onclick="cancelarCompra()">Cancelar</button>
+    <button onclick="comprar()">Comprar</button>
+
+    <script>
+        // Função para carregar os itens do carrinho do localStorage
+        function carregarItensCarrinho() {
+            var carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            var carrinhoItens = document.getElementById('carrinhoItens');
+            carrinhoItens.innerHTML = '';
+
+            carrinho.forEach(function(item) {
+                var div = document.createElement('div');
+                div.classList.add('carrinho-item');
+
+                var checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.value = item.produto;
+                div.appendChild(checkbox);
+
+                var span = document.createElement('span');
+                span.textContent = item.produto + ' - ' + item.quantidade + ' Kg - R$ ' + (item.preco * item.quantidade) + ',00';
+                div.appendChild(span);
+
+                carrinhoItens.appendChild(div);
+            });
+        }
+
+        // Funções para lidar com as formas de pagamento
+        function pagarComCartao() {
+            alert('Opção de pagamento com cartão selecionada.');
+            // Aqui você pode redirecionar para uma página de pagamento com cartão ou exibir um formulário
+        }
+
+        function pagarComPix() {
+            alert('Opção de pagamento com Pix selecionada.');
+            // Aqui você pode gerar um QR code para pagamento com Pix
+        }
+
+        function pagarComBoleto() {
+            alert('Opção de pagamento com boleto selecionada.');
+            // Aqui você pode gerar um boleto para download
+        }
+
+        // Funções para cancelar ou comprar
+        function cancelarCompra() {
+            localStorage.removeItem('carrinho'); // Limpa o carrinho
+            window.location.href = "pagina_de_produto.html"; // Redireciona de volta para a página de produtos
+        }
+
+        function comprar() {
+            var checkboxes = document.querySelectorAll('.carrinho-item input[type="checkbox"]');
+            var produtosSelecionados = [];
+
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    produtosSelecionados.push(checkbox.value);
+                }
+            });
+
+            // Aqui você pode lidar com os produtos selecionados
+            console.log('Produtos selecionados:', produtosSelecionados);
+        }
+
+        // Carrega os itens do carrinho ao carregar a página
+        window.onload = carregarItensCarrinho;
+    </script>
+</body>
+</html>

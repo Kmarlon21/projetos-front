@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooperativa de Pescadores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #3498db; /* Fundo azul */
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu {
+            background-color: #333;
+            color: white;
+            width: 200px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        .tabcontent {
+            display: none;
+        }
+
+        .fale-conosco {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 5px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .fale-conosco a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="#boleto" onclick="abrirAba(event, 'boleto')">Boleto</a>
+        <a href="#produtos-mais-pedidos" onclick="abrirAba(event, 'produtos-mais-pedidos')">Produtos Mais Pedidos</a>
+        <a href="#sobre-nos" onclick="abrirAba(event, 'sobre-nos')">Sobre Nós</a>
+        <a href="#adicionar-produto" onclick="abrirAba(event, 'adicionar-produto')">Adicionar Produto</a>
+    </div>
+
+    <div class="fale-conosco">
+        <a href="https://chat.whatsapp.com/GT6HUPBcNFzAlJBEVQ1xd8">Fale Conosco</a>
+    </div>
+
+    <div class="content">
+        <div id="boleto" class="tabcontent">
+            <h3>Boleto</h3>
+            <p>Aqui estão os dados do seu boleto para download ou impressão.</p>
+            <!-- Exemplo de um link de download para um boleto -->
+            <a href="boleto.pdf" download>Baixar Boleto</a>
+        </div>
+
+        <div id="produtos-mais-pedidos" class="tabcontent">
+            <h3>Produtos Mais Pedidos</h3>
+            <p>Aqui estão os produtos mais pedidos:</p>
+            <ul>
+                <li>Camarão</li>
+                <li>Lagosta</li>
+                <li>Salmão</li>
+                <li>Sardinha</li>
+            </ul>
+        </div>
+
+        <div id="sobre-nos" class="tabcontent">
+            <h3>Sobre Nós</h3>
+            <p>Somos uma cooperativa de pescadores dedicados à preservação e sustentabilidade dos recursos marinhos. Nossa missão é garantir a qualidade e a procedência dos nossos produtos, enquanto contribuímos para o desenvolvimento das comunidades pesqueiras.</p>
+        </div>
+
+        <div id="adicionar-produto" class="tabcontent">
+            <h3>Adicionar Produto</h3>
+            <form action="processar_produto.php" method="post">
+                <label for="produto">Produto:</label>
+                <input type="text" id="produto" name="produto" required>
+
+                <label for="preco">Preço:</label>
+                <input type="number" id="preco" name="preco" required>
+
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function abrirAba(evt, abaNome) {
+            var i, tabcontent, menuLinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            menuLinks = document.querySelectorAll(".menu a");
+            for (i = 0; i < menuLinks.length; i++) {
+                menuLinks[i].classList.remove("active");
+            }
+            document.getElementById(abaNome).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Abre a primeira aba por padrão
+        document.querySelector(".menu a").click();
+    </script>
+</body>
+</html>

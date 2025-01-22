@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Parkinsans:wght@300..800&display=swap");
+
+:root {
+  --cor0: #e9e4e4;
+  --cor1: #332d2d;
+  --cor2: #332424;
+  --cor3: #663e3a;
+  --cor4: #91413a;
+  --cor5: #92201e;
+  --cor6: #bd0a07;
+  --cor7: #000000;
+
+  --font-padrão: arial, verdana, helvetica, sans-serif;
+  --font-destaque: "Parkinsans", serif;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: var(--font-padrão);
+  background-color: var(--cor0);
+}
+
+header {
+  background-image: linear-gradient(
+    to bottom,
+    var(--cor6),
+    var(--cor5),
+    var(--cor7)
+  );
+  background-color: var(--cor6);
+  text-align: center;
+  min-height: 150px;
+  padding-top: 40px;
+}
+
+header > h1 {
+  color: var(--cor0);
+  padding-bottom: 20px;
+  font-family: var(--font-destaque);
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.342);
+  font-size: 3em;
+}
+
+header > p {
+  color: var(--cor0);
+  font-family: var(--font-padrão);
+  padding-bottom: 25px;
+  line-height: 1.3em;
+  font-size: 1.1em;
+  max-width: 500px;
+  margin: auto;
+}
+
+nav {
+  background-color: var(--cor7);
+  padding: 10px;
+  box-shadow: 2px 2px 2px 0px #00000044;
+}
+
+nav > a {
+  color: var(--cor5);
+  font-weight: bold;
+  text-decoration: none;
+  transition-duration: 0.5ms;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+nav > a:hover {
+  background-color: var(--cor6);
+  color: var(--cor0);
+}
+
+main {
+  width: 90%;
+  min-width: 300px;
+  max-width: 1000px;
+  background-color: var(--cor0);
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.507);
+}
+
+main h1 {
+  font-family: var(--font-destaque);
+  font-size: 2.5em;
+  color: var(--cor6);
+  font-weight: normal;
+}
+
+main p {
+  text-align: justify;
+  line-height: 1.3em;
+  font-weight: normal;
+  font-size: 1em;
+  text-indent: 30px;
+  margin: 20px 0px;
+}
+
+main strong {
+  color: var(--cor6);
+  font-weight: bold;
+}
+
+main img {
+  width: 100%;
+}
+
+aside {
+  padding: 10px;
+  background-color: var(--cor1);
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.507);
+}
+
+aside > h2 {
+  background-color: var(--cor6);
+  border-radius: 10px 10px 0px 0px;
+  margin: -10px -10px 0 -10px;
+  font-family: var(--font-destaque);
+  padding-left: 60px;
+}
+
+aside > p {
+  font-family: var(--font-padrão);
+  font-size: 1em;
+  line-height: 1.4em;
+  color: var(--cor0);
+}
+
+aside > ul {
+  columns: 2;
+  list-style-type: "\2705";
+  list-style-position: inside;
+}
+
+footer {
+  background-color: var(--cor6);
+}
+
+footer p {
+  text-align: center;
+  font-family: var(--font-padrão);
+  font-size: 1em;
+  line-height: 1.2em;
+  padding: 3px;
+  color: var(--cor0);
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--cor7);
+}
+
+footer a:hover {
+  background-color: var(--cor1);
+  border-radius: 10px;
+  padding: 3px;
+}

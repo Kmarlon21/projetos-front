@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pescadores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #3498db; /* Fundo azul */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Para evitar rolagem horizontal */
+            position: relative;
+        }
+
+        .menu {
+            background-color: #333; /* Cor do menu */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+
+        .container {
+            margin-top: 80px; /* Espaço para o menu */
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #fff; /* Fundo branco */
+            border-radius: 10px;
+            flex-grow: 1; /* O conteúdo ocupa todo o espaço disponível */
+            margin-right: 20px;
+        }
+
+        .fale-conosco {
+            background-color: #333; /* Cor do botão Fale Conosco */
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 5px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .fale-conosco a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="#boleto">Boleto</a>
+        <a href="file:///C:/xampp/htdocs/cooperativa/pagina-de-produtos.html">Produtos Mais Pedidos</a>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1 style="text-align:center; color: #333;">Cadastro de Pescadores</h1>
+            <form id="cadastroForm" action="processar_cadastro.php" method="post">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" id="sobrenome" name="sobrenome" required>
+                
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+                
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" required>
+                
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" required>
+                
+                <button type="file:///C:/xampp/htdocs/cooperativa/p%C3%B3s%20cadastro.html#boleto">Cadastrar</button>
+            </form>
+        </div>
+
+        <div class="fale-conosco">
+            <a href="https://chat.whatsapp.com/GT6HUPBcNFzAlJBEVQ1xd8">Fale Conosco</a>
+        </div>
+    </div>
+</body>
+</html>
