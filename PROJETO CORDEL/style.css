@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Parkinsans:wght@300..800&family=Sriracha&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Parkinsans:wght@300..800&family=Passion+One:wght@400;700;900&family=Sriracha&display=swap");
+
+:root {
+  --font1: arial, helvetica, Verdana, sans-serif;
+  --font2: "Sriracha", cursive;
+  --font3: "Passion One", serif;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+html,
+body {
+  background-color: antiquewhite;
+  font-family: var(--font1);
+  min-height: 100vh;
+}
+
+header {
+  background-color: black;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.404);
+  padding: 50px;
+  text-align: center;
+}
+
+header > h1 {
+  font-size: 10vw;
+  color: aliceblue;
+  padding: 5px;
+  font-variant: small-caps;
+  font-family: var(--font3);
+}
+
+header > p {
+  font-size: 0.9em;
+  color: grey;
+}
+
+header a,
+footer a {
+  text-decoration: none;
+  color: aliceblue;
+  font-weight: bolder;
+}
+
+header a:hover,
+footer a:hover {
+  text-decoration: underline;
+}
+
+section {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  line-height: 2em;
+  padding-left: 30px;
+  font-family: var(--font2);
+  font-size: 3.5vw;
+}
+
+section > p {
+  padding-bottom: 2em;
+}
+
+section.normal {
+  background-color: aliceblue;
+  color: black;
+}
+
+section.imagem {
+  background-color: rgb(51, 51, 51);
+  color: aliceblue;
+  box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.411);
+}
+
+section.imagem > p {
+  background-color: rgba(0, 0, 0, 0.521);
+  display: inline-block;
+  padding: 5px;
+  text-shadow: 1px 1px 0px black;
+}
+
+section#img01 {
+  background-image: url(IMG/background001.jpg);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+section#img02 {
+  background-image: url(IMG/background002.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right center;
+  background-attachment: fixed;
+}
+
+footer {
+  background-color: black;
+  text-align: center;
+  color: aliceblue;
+  padding: 5px;
+}
